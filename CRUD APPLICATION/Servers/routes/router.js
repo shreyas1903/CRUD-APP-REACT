@@ -15,11 +15,11 @@ router.post("/register", async (req, res) => {
   }
 
   try {
-    const preuser = await users.findone({ email: email });
+    const preuser = await users.findOne({ email: email });
     console.log(preuser);
 
     if (preuser) {
-      res.status(404).send("this already exists");
+      res.status(404).json("this already exists");
     } else {
       const adduser = new users({
         name,
